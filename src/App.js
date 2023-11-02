@@ -1,27 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
-import { FcAddDatabase } from 'react-icons/fc';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+import { TodoCounter } from './TodoCounter';
+import { TodoSearch } from './TodoSearch'
+import { TodoList } from './TodoList';
+import { TodoCreateButton } from './TodoCreateButton';
+import { TodoItem } from './TodoItem';
+
+const items = [
+  {
+    "text": "Crear todo list maquetado"
+  },
+  {
+    "text": "Iterar items"
+  },
+  {
+    "text": "lo que sea"
+  },
+  {
+    "text": "same"
+  },
+];
 
 function App() {
   return (
     <div className='container mt-5'>
-      <h1 className='fs-3 title'>Has completado <span>0</span> de <span>0</span> TODOs</h1>
-      <div className='container mt-5 mb-4'>
-        <div className='row'>
-          <input className='py-2 fs-3 text-center' type='text' placeholder='Cortar cebolla' />
-        </div>
-      </div>
-      <div className='container'>
-        <div className='row'>
-          <ul className='col-12'>
-            <li>Crear todo list maquetado</li>
-            <li>Manipulacion DummyData</li>
-            <li>Crear array de objetos</li>
-          </ul>
-        </div>
-      </div>
-      <buton className="btn"><FcAddDatabase size={50} /></buton>
+      <TodoCounter completed={2} total={5}></TodoCounter>
+      <TodoSearch></TodoSearch>
+
+      <TodoList>
+        {items.map (item => {
+          <TodoItem key={item.text} text={item.text}></TodoItem>
+        })}
+      </TodoList>
+
+      <TodoCreateButton></TodoCreateButton>
     </div>
   );
 }

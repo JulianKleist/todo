@@ -1,3 +1,7 @@
+html {
+  background-color: #e6e9ec;
+}
+
 .title {
   font-weight: 400;
 }
@@ -8,6 +12,7 @@
 
 input {
   border: 2px solid black;
+  color: gray;
 }
 
 .btn {
@@ -17,5 +22,5 @@ input {
 }
 
 ul {
- text-decoration: none;
+ 
 }
